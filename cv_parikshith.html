@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 12mm 14mm;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #eef3f7;
+            color: #1f2933;
+            font-family: Arial, "Segoe UI", sans-serif;
+            font-size: 9.2pt;
+            line-height: 1.34;
+            padding: 16px 0;
+        }
+
+        a {
+            color: #154360;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .page {
+            width: 210mm;
+            max-width: 100%;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: #fff;
+            padding: 13mm 15mm;
+            box-shadow: 0 10px 34px rgba(20, 43, 66, 0.12);
+        }
+
+        .header {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 58mm;
+            gap: 16px;
+            padding-bottom: 10px;
+            margin-bottom: 10px;
+            border-bottom: 2.5px solid #154360;
+        }
+
+        h1 {
+            color: #132b3f;
+            font-size: 24pt;
+            line-height: 1.05;
+            margin-bottom: 4px;
+        }
+
+        .role {
+            color: #34495e;
+            font-size: 10.4pt;
+            font-weight: 700;
+        }
+
+        .contact {
+            display: grid;
+            gap: 3px;
+            color: #3d4d5d;
+            font-size: 8.2pt;
+            line-height: 1.3;
+            text-align: right;
+        }
+
+        .section {
+            margin-top: 10px;
+            break-inside: avoid;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #154360;
+            font-size: 8.9pt;
+            font-weight: 800;
+            letter-spacing: 1.1px;
+            text-transform: uppercase;
+            margin-bottom: 6px;
+        }
+
+        .section-title::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: #b9d7e8;
+        }
+
+        .profile {
+            color: #2d3945;
+            text-align: justify;
+        }
+
+        .entry,
+        .project,
+        .award {
+            break-inside: avoid;
+        }
+
+        .entry {
+            margin-bottom: 7px;
+        }
+
+        .entry-header,
+        .project-header,
+        .award {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            gap: 10px;
+            align-items: baseline;
+        }
+
+        .entry-title,
+        .project-title {
+            color: #172331;
+            font-size: 9.7pt;
+            font-weight: 800;
+        }
+
+        .company,
+        .meta-line {
+            color: #154360;
+            font-size: 8.7pt;
+            font-weight: 700;
+            margin-top: 1px;
+        }
+
+        .date {
+            color: #5e6f7f;
+            font-size: 8.2pt;
+            white-space: nowrap;
+            text-align: right;
+        }
+
+        ul {
+            margin: 3px 0 0 14px;
+        }
+
+        li {
+            margin-bottom: 1.5px;
+            padding-left: 1px;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px 13px;
+        }
+
+        .skill-group h3 {
+            color: #154360;
+            font-size: 8.6pt;
+            font-weight: 800;
+            margin-bottom: 3px;
+        }
+
+        .skill-group p {
+            color: #2d3945;
+        }
+
+        .project {
+            margin-bottom: 7px;
+        }
+
+        .badge {
+            color: #5e6f7f;
+            font-weight: 700;
+        }
+
+        .award {
+            margin-bottom: 4px;
+        }
+
+        .award-title {
+            font-weight: 700;
+        }
+
+        strong {
+            color: #172331;
+        }
+
+        @media print {
+            body {
+                background: #fff;
+                padding: 0;
+                font-size: 9pt;
+            }
+
+            .page {
+                width: auto;
+                min-height: auto;
+                margin: 0;
+                padding: 0;
+                box-shadow: none;
+            }
+        }
+
+        @media (max-width: 720px) {
+            body {
+                padding: 0;
+            }
+
+            .page {
+                padding: 18px;
+                min-height: auto;
+            }
+
+            .header,
+            .entry-header,
+            .project-header,
+            .award,
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact,
+            .date {
+                text-align: left;
+            }
+        }
+    </style>
+</head>
+<body>
+<main class="page">
+    <header class="header">
+        <div>
+            <h1>Parikshith Y S</h1>
+            <div class="role">Robotics &amp; AI Engineer | ROS2, PX4, Embedded AI, Edge Inference</div>
+        </div>
+        <div class="contact" aria-label="Contact">
+            <a href="mailto:parikshithys7@gmail.com">parikshithys7@gmail.com</a>
+            <a href="https://www.linkedin.com/in/parikshith-y-s-388068183/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/pari1999" target="_blank">GitHub</a>
+            <a href="tel:+4915734264480">(+49) 15734264480</a>
+        </div>
+    </header>
+
+    <section class="section">
+        <h2 class="section-title">Profile</h2>
+        <p class="profile">
+            AI Engineering student at <strong>Technische Hochschule Ingolstadt</strong> with over 5 years of professional experience as an Embedded Engineer.
+            Specializing in end-to-end <strong>ROS2-based robotic systems</strong> and <strong>Edge AI solutions</strong> including running Vision Language Models
+            on resource-constrained hardware. Expertise bridges complex firmware (C/C++, FreeRTOS) and high-level autonomous behaviors (Python, PyTorch).
+            Having supported <strong>NVIDIA's DRIVE OS</strong> and built autonomous drone solutions at <strong>Hilti</strong>, driven to create production-grade
+            intelligent systems for real-world mobility and logistics.
+        </p>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Work Experience</h2>
+
+        <article class="entry">
+            <div class="entry-header">
+                <div>
+                    <div class="entry-title">Robotics &amp; AI Engineer <span class="badge">(Work Student)</span></div>
+                    <div class="company">Hilti | Kaufering, Germany</div>
+                </div>
+                <div class="date">Dec 2024 - Present</div>
+            </div>
+            <ul>
+                <li>Architecting an end-to-end <strong>ROS2</strong>-based robotic system for autonomous construction logistics and tool tracking.</li>
+                <li>Developed robust localization pipeline using <strong>Particle Filters</strong> for real-time tool tracking in complex environments.</li>
+                <li>Integrating <strong>Gaussian Processes</strong> for intelligent path planning and environment modeling to enhance drone navigation efficiency.</li>
+                <li>Designing and testing <strong>PX4</strong>- and <strong>ROS2</strong>-based drone control systems with autonomous waypoint navigation and return-to-launch features.</li>
+                <li>Integrating computer vision (<strong>LiDAR</strong> + onboard cameras) for obstacle detection and environment awareness.</li>
+                <li>Developing and debugging flight behaviors in <strong>Gazebo</strong>/<strong>SITL</strong> before hardware deployment.</li>
+                <li>Supporting research on <strong>Edge AI</strong> applications - lightweight <strong>deep learning</strong> models for real-time decision-making on embedded systems.</li>
+            </ul>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <div>
+                    <div class="entry-title">Senior Embedded Engineer <span class="badge">(Contractor)</span></div>
+                    <div class="company">NVIDIA via Vayavya Labs | Bengaluru, India</div>
+                </div>
+                <div class="date">Jul 2023 - Jul 2024</div>
+            </div>
+            <ul>
+                <li>Supported <strong>DRIVE OS</strong> component of NVIDIA's autonomous driving software stack.</li>
+                <li>Collaborated with internal software groups to design and implement the base software layer (<strong>Linux</strong>/<strong>QNX</strong> OS, device drivers).</li>
+                <li>Developed hardware-specific drivers using <strong>AutoSAR</strong> firmware for NVIDIA's upcoming <strong>ADAS</strong> hardware.</li>
+                <li>Conducted driver validation through functional test cases; resolved customer-reported <strong>DRIVE OS</strong> bugs.</li>
+                <li>Matured prototype software to production-quality standards.</li>
+            </ul>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <div>
+                    <div class="entry-title">Embedded Systems Software Developer <span class="badge">(Contract)</span></div>
+                    <div class="company">Stasis Labs | Bengaluru, India</div>
+                </div>
+                <div class="date">Apr 2023 - Jul 2023</div>
+            </div>
+            <ul>
+                <li>Decoded <strong>medical device</strong> data using manufacturer communication protocol specifications.</li>
+                <li>Designed and developed application software to read, format, and transmit data from <strong>medical devices</strong>.</li>
+                <li>Collaborated with hardware team on cable design and <strong>signal-level validation</strong> for reliable data transmission.</li>
+                <li>Wrote automation scripts for task scheduling, device simulators, and test rigs.</li>
+            </ul>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <div>
+                    <div class="entry-title">Embedded Engineer</div>
+                    <div class="company">Frenustech | Bengaluru, India</div>
+                </div>
+                <div class="date">Aug 2021 - Oct 2022</div>
+            </div>
+            <ul>
+                <li>Developed FPGA BSP for a custom <strong>RISC-V</strong> core; implemented and validated <strong>I2C, UART, SPI</strong> drivers on Xilinx ARTY A7.</li>
+                <li>Implemented real-time <strong>object detection</strong> on STM32H747I (dual-core ARM) using a compressed <strong>TensorFlow Lite</strong> model.</li>
+                <li>Developed <strong>FreeRTOS</strong>-based applications and <strong>multi-sensor fusion</strong> firmware for STM32 microcontrollers.</li>
+                <li>Designed SDK for ARM-based microcontrollers; conducted performance benchmarking.</li>
+            </ul>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <div>
+                    <div class="entry-title">UAV Researcher Intern</div>
+                    <div class="company">Vyomastra | Bangalore, India</div>
+                </div>
+                <div class="date">Mar 2021 - Sep 2021</div>
+            </div>
+            <ul>
+                <li>Developed <strong>UAV firmware</strong> for photogrammetry and AI-based drone applications.</li>
+                <li>Designed UAV subsystems: <strong>battery management</strong>, <strong>flight controller</strong>, and <strong>NPNT</strong> compliance modules.</li>
+            </ul>
+        </article>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-group">
+                <h3>Robotics &amp; Autonomy</h3>
+                <p>ROS2, PX4, Gazebo, NVIDIA Isaac Sim, NVIDIA Omniverse, Isaac ROS, OpenCV, SLAM, Particle Filters, Path Planning</p>
+            </div>
+            <div class="skill-group">
+                <h3>AI &amp; Edge Inference</h3>
+                <p>PyTorch, TensorFlow Lite, ONNX, TensorRT, INT8 / FP16 Quantization, Model Pruning, DeepStream, Edge AI, VLMs</p>
+            </div>
+            <div class="skill-group">
+                <h3>Embedded &amp; Systems</h3>
+                <p>C / C++, Embedded C, AutoSAR, FreeRTOS, Python, Linux, QNX, STM32, Git, Jupyter</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Education</h2>
+
+        <article class="entry">
+            <div class="entry-header">
+                <div>
+                    <div class="entry-title">M.Eng. - AI Engineering of Autonomous Systems</div>
+                    <div class="company">Technische Hochschule Ingolstadt | Germany</div>
+                    <div class="meta-line">Thesis: Enhancing UAV Control with Large Language Models: Natural Language Interfaces and Context-Aware Guidance</div>
+                </div>
+                <div class="date">Oct 2024 - Present</div>
+            </div>
+        </article>
+
+        <article class="entry">
+            <div class="entry-header">
+                <div>
+                    <div class="entry-title">B.Eng. - Electronics and Communication Engineering</div>
+                    <div class="company">Vidyavardhaka College of Engineering | Mysuru, India</div>
+                    <div class="meta-line">Final Grade: <strong>1.7</strong></div>
+                </div>
+                <div class="date">Aug 2017 - Aug 2021</div>
+            </div>
+        </article>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Projects</h2>
+
+        <article class="project">
+            <div class="project-header">
+                <div class="project-title">Autonomous Object Sorting &amp; Transport - Dual-Robot Collaboration</div>
+                <div class="date">Apr 2025 - Jul 2025</div>
+            </div>
+            <ul>
+                <li>DJI RoboMaster EP + Arduino Braccio arm for warehouse-style object sorting and transportation.</li>
+                <li>ArUco marker + OpenCV navigation - <strong>85% alignment accuracy</strong>.</li>
+                <li>HSV color detection: <strong>95% (red)</strong> and <strong>90% (green)</strong> under varying lighting.</li>
+                <li>Multi-threaded control across Raspberry Pi and Windows PC with real-time sync.</li>
+            </ul>
+        </article>
+
+        <article class="project">
+            <div class="project-header">
+                <div class="project-title">Custom UAV Flight Controller &amp; Transceiver Stack <span class="badge">Final Year Project</span></div>
+                <div class="date">Oct 2020 - Apr 2021</div>
+            </div>
+            <ul>
+                <li>Designed full UAV flight controller firmware from ground up: sensor fusion, control loops, and RF comms.</li>
+                <li>IMU sensor fusion (accel, gyro, magnetometer) for real-time attitude estimation.</li>
+                <li>PID attitude stabilization and altitude hold tuned through iterative flight tests.</li>
+                <li>Custom RF transceiver for real-time telemetry and remote command reception.</li>
+            </ul>
+        </article>
+
+        <article class="project">
+            <div class="project-header">
+                <div class="project-title">GSM-Based Real-Time Location Tracking System</div>
+                <div class="date">Jan 2019 - Mar 2019</div>
+            </div>
+            <ul>
+                <li>GPS + GSM real-time asset tracking with cellular SMS-based location transmission.</li>
+                <li>Microcontroller firmware to parse NMEA sentences and format data for reliable output.</li>
+            </ul>
+        </article>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Language Skills</h2>
+        <div class="award">
+            <div><span class="award-title">English</span></div>
+            <div class="date">C1, Proficient</div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2 class="section-title">Honours &amp; Awards</h2>
+        <div class="award">
+            <div><span class="award-title">National Level Hackathon Winner</span> | ATME Engineering College</div>
+            <div class="date">Mar 2019</div>
+        </div>
+        <div class="award">
+            <div><span class="award-title">National Level Hackathon Winner</span> | PES College, Mandya</div>
+            <div class="date">Oct 2019</div>
+        </div>
+    </section>
+
+</main>
+</body>
+</html>
