@@ -42,9 +42,9 @@ nav{position:fixed;top:0;width:100%;z-index:200;padding:14px 48px;display:flex;j
 .hero-tag{display:inline-flex;align-items:center;gap:6px;background:rgba(0,200,255,.08);color:var(--accent);border:1px solid rgba(0,200,255,.25);padding:5px 14px;border-radius:20px;font-size:.75rem;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:18px;}
 .hero-tag::before{content:'';width:7px;height:7px;background:var(--green);border-radius:50%;animation:blink-dot 1.4s ease-in-out infinite;}
 .hero-name{font-size:clamp(2rem,4vw,3rem);font-weight:800;line-height:1.1;margin-bottom:10px;background:linear-gradient(130deg,#fff 30%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
-.hero-sub{font-size:.95rem;color:var(--muted);margin-bottom:6px;}
+.hero-sub{font-size:.98rem;color:#cbd5e1;font-weight:650;line-height:1.55;max-width:560px;margin-bottom:10px;}
 .hero-sub span{color:var(--green);font-weight:600;}
-.hero-desc{font-size:.875rem;color:var(--muted);line-height:1.8;max-width:420px;margin-bottom:18px;}
+.hero-desc{font-size:.875rem;color:var(--muted);line-height:1.8;max-width:500px;margin-bottom:18px;}
 .snapshot{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-width:430px;margin-bottom:26px;}
 .snap-item{border:1px solid rgba(0,200,255,.2);background:rgba(0,200,255,.055);border-radius:8px;padding:8px 10px;}
 .snap-k{display:block;color:var(--green);font-size:.78rem;font-weight:800;line-height:1.1;}
@@ -176,20 +176,72 @@ nav{position:fixed;top:0;width:100%;z-index:200;padding:14px 48px;display:flex;j
 .edu-date{font-size:.78rem;color:var(--muted);white-space:nowrap;}
 
 /* ── PROJECTS ── */
-.proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;}
-.proj-card{background:var(--bg2);border:1px solid var(--border);border-radius:12px;padding:22px;opacity:0;transform:translateY(16px);transition:all .45s ease;}
+.project-title-row{display:flex;justify-content:space-between;align-items:flex-end;gap:28px;margin-bottom:24px;}
+.project-deck{max-width:430px;color:#94a3b8;font-size:.88rem;line-height:1.7;}
+.proj-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;}
+.proj-card{--accent-line:var(--accent);position:relative;overflow:hidden;background:linear-gradient(145deg,rgba(13,27,53,.96),rgba(10,21,42,.98));border:1px solid var(--border);border-radius:8px;padding:20px;opacity:0;transform:translateY(16px);transition:opacity .45s ease,transform .45s ease,border-color .2s,box-shadow .2s;}
+.proj-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent-line);box-shadow:0 0 16px var(--accent-line);}
 .proj-card.show{opacity:1;transform:translateY(0);}
-.proj-card:hover{border-color:var(--accent);box-shadow:0 6px 24px rgba(0,200,255,.09);transform:translateY(-3px);}
-.proj-head{display:flex;justify-content:space-between;align-items:flex-start;gap:8px;margin-bottom:6px;}
-.proj-name{font-weight:700;font-size:.93rem;flex:1;}
-.proj-badge{font-size:.68rem;background:rgba(124,58,237,.18);color:#a78bfa;border:1px solid rgba(124,58,237,.3);padding:2px 8px;border-radius:10px;white-space:nowrap;}
-.proj-date{font-size:.77rem;color:var(--muted);margin-bottom:10px;}
-.proj-card ul{padding-left:14px;}
-.proj-card li{font-size:.845rem;color:#94a3b8;margin-bottom:4px;}
-.metric{color:var(--green);font-weight:600;}
-.project-links{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;}
-.proof-link{display:inline-flex;align-items:center;padding:7px 11px;border:1px solid rgba(0,200,255,.22);border-radius:8px;color:var(--text);text-decoration:none;font-size:.78rem;transition:all .2s;background:rgba(0,200,255,.045);}
-.proof-link:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px);}
+.proj-card:hover{border-color:var(--accent-line);box-shadow:0 8px 28px rgba(0,200,255,.1);transform:translateY(-3px);}
+.featured-proj{grid-column:1/-1;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(320px,.95fr);gap:24px;padding:26px;}
+.proj-copy,.proj-media{min-width:0;}
+.proj-card:not(.featured-proj) .proj-media{margin-bottom:16px;}
+.proj-head{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;margin-bottom:8px;}
+.proj-eyebrow{font-size:.68rem;color:var(--accent-line);text-transform:uppercase;letter-spacing:1.8px;margin-bottom:8px;font-weight:700;}
+.proj-name{font-weight:800;font-size:1.05rem;line-height:1.3;flex:1;}
+.featured-proj .proj-name{font-size:1.45rem;}
+.proj-badge{font-size:.68rem;background:rgba(124,58,237,.18);color:#c4b5fd;border:1px solid rgba(124,58,237,.34);padding:3px 8px;border-radius:999px;white-space:nowrap;}
+.proj-impact{color:#cbd5e1;font-size:.88rem;line-height:1.7;margin:10px 0 14px;}
+.proj-card ul{list-style:none;padding:0;margin:0;}
+.proj-card li{position:relative;font-size:.84rem;color:#94a3b8;line-height:1.55;margin-bottom:7px;padding-left:15px;}
+.proj-card li::before{content:'';position:absolute;left:0;top:.7em;width:5px;height:5px;border-radius:50%;background:var(--accent-line);}
+.metric{color:var(--green);font-weight:700;}
+.proj-metrics,.proj-stack,.proj-actions{display:flex;gap:7px;flex-wrap:wrap;margin-top:14px;}
+.proj-metric{padding:5px 9px;border:1px solid rgba(0,255,136,.24);background:rgba(0,255,136,.06);border-radius:999px;color:#b8ffd9;font-size:.72rem;font-weight:700;}
+.stack-chip{padding:4px 8px;background:rgba(255,255,255,.045);border:1px solid rgba(148,163,184,.18);border-radius:6px;color:#cbd5e1;font-size:.72rem;}
+.repo-link{display:inline-flex;align-items:center;gap:6px;padding:8px 12px;border:1px solid rgba(0,200,255,.28);border-radius:8px;background:rgba(0,200,255,.06);color:var(--text);text-decoration:none;font-size:.78rem;font-weight:700;transition:all .2s;}
+.repo-link:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-1px);}
+.proj-visual{position:relative;isolation:isolate;overflow:hidden;min-height:190px;aspect-ratio:16/10;border:1px solid rgba(148,163,184,.18);border-radius:8px;background:#08142b;}
+.proj-visual::after{content:'';position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);background-size:26px 26px;pointer-events:none;}
+.proj-visual img{cursor:zoom-in;}
+.visual-duo{display:grid;grid-template-columns:1fr 1fr;gap:8px;padding:8px;}
+.visual-tile{position:relative;overflow:hidden;border-radius:6px;background:#0b1730;min-width:0;}
+.visual-tile img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.05);}
+.visual-tile span{position:absolute;left:8px;bottom:8px;padding:4px 7px;border-radius:6px;background:rgba(6,13,31,.82);border:1px solid rgba(255,255,255,.12);color:#e2e8f0;font-size:.68rem;font-weight:700;}
+.sorting-visual{display:grid;grid-template-columns:1.35fr .85fr;gap:8px;padding:8px;background:#08142b;}
+.sort-main,.sort-shot{position:relative;overflow:hidden;border-radius:6px;background:#0b1730;min-width:0;}
+.sort-side{display:grid;gap:8px;min-width:0;}
+.sorting-visual img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.04) contrast(1.04);}
+.sort-architecture img{object-fit:contain;background:#fff;}
+.sort-main span,.sort-shot span{position:absolute;left:8px;bottom:8px;padding:4px 7px;border-radius:6px;background:rgba(6,13,31,.84);border:1px solid rgba(255,255,255,.12);color:#e2e8f0;font-size:.68rem;font-weight:700;}
+.drone-visual{display:grid;grid-template-columns:1.15fr .85fr;gap:8px;padding:8px;background:#08142b;}
+.drone-main,.drone-shot{position:relative;overflow:hidden;border-radius:6px;background:#0b1730;min-width:0;}
+.drone-side{display:grid;gap:8px;min-width:0;}
+.drone-visual img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.05) contrast(1.05);}
+.drone-shot.map img{object-fit:contain;background:#fff;}
+.drone-main span,.drone-shot span{position:absolute;left:8px;bottom:8px;padding:4px 7px;border-radius:6px;background:rgba(6,13,31,.84);border:1px solid rgba(255,255,255,.12);color:#e2e8f0;font-size:.68rem;font-weight:700;}
+.thesis-visual{display:grid;grid-template-columns:1.25fr .95fr;gap:8px;padding:8px;background:#08142b;}
+.thesis-main,.thesis-shot{position:relative;overflow:hidden;border-radius:6px;background:#0b1730;min-width:0;}
+.thesis-side{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(2,minmax(0,1fr));gap:8px;min-width:0;}
+.thesis-visual img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.04) contrast(1.04);}
+.thesis-shot.chart img{object-fit:contain;background:#fff;}
+.thesis-main span,.thesis-shot span{position:absolute;left:8px;bottom:8px;padding:4px 7px;border-radius:6px;background:rgba(6,13,31,.84);border:1px solid rgba(255,255,255,.12);color:#e2e8f0;font-size:.68rem;font-weight:700;}
+.rl-visual{background:linear-gradient(90deg,rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(rgba(255,255,255,.06) 1px,transparent 1px),linear-gradient(145deg,#10213f,#132b30);background-size:20% 20%,20% 20%,100% 100%;}
+.rl-visual img{position:absolute;width:60px;height:60px;object-fit:contain;z-index:1;filter:drop-shadow(0 8px 12px rgba(0,0,0,.45));}
+.rl-bot{left:13%;top:18%;}.rl-trash-a{left:36%;top:36%;}.rl-trash-b{left:58%;top:50%;}.rl-bin-a{right:12%;bottom:12%;}.rl-bin-b{right:12%;top:12%;}
+.uav-visual{display:block;background:#08142b;padding:8px;}
+.uav-proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;height:100%;}
+.uav-proof{position:relative;overflow:hidden;border-radius:6px;background:#0b1730;min-height:88px;}
+.uav-proof img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(1.03) contrast(1.04);}
+.uav-proof.schematic img{object-fit:contain;background:#fff;}
+.uav-proof span{position:absolute;left:8px;bottom:8px;padding:4px 7px;border-radius:6px;background:rgba(6,13,31,.84);border:1px solid rgba(255,255,255,.12);color:#e2e8f0;font-size:.68rem;font-weight:700;}
+.image-lightbox{position:fixed;inset:0;z-index:500;display:flex;align-items:center;justify-content:center;padding:30px;background:rgba(3,7,18,.88);backdrop-filter:blur(10px);opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease;}
+.image-lightbox.open{opacity:1;visibility:visible;}
+.lightbox-panel{position:relative;max-width:min(1120px,94vw);max-height:88vh;display:flex;flex-direction:column;gap:10px;}
+.lightbox-panel img{max-width:100%;max-height:78vh;object-fit:contain;border-radius:8px;border:1px solid rgba(255,255,255,.16);background:#08142b;box-shadow:0 20px 70px rgba(0,0,0,.45);}
+.lightbox-caption{color:#cbd5e1;font-size:.86rem;text-align:center;}
+.lightbox-close{position:absolute;top:-16px;right:-16px;width:36px;height:36px;border:1px solid rgba(255,255,255,.2);border-radius:50%;background:#0d1b35;color:var(--text);font-size:1.3rem;line-height:1;cursor:pointer;transition:all .2s;}
+.lightbox-close:hover{border-color:var(--accent);color:var(--accent);transform:scale(1.04);}
 
 /* ── AWARDS ── */
 .award-row{display:flex;justify-content:space-between;align-items:center;background:var(--bg2);border:1px solid var(--border);border-radius:10px;padding:15px 20px;margin-bottom:10px;transition:border-color .2s;}
@@ -208,11 +260,36 @@ nav{position:fixed;top:0;width:100%;z-index:200;padding:14px 48px;display:flex;j
 footer{text-align:center;padding:20px;border-top:1px solid var(--border);color:var(--muted);font-size:.78rem;}
 
 /* ── RESPONSIVE ── */
+@media(max-width:900px){
+  .project-title-row{align-items:flex-start;flex-direction:column;}
+  .project-deck{max-width:100%;}
+  .featured-proj{grid-template-columns:1fr;}
+}
 @media(max-width:768px){
   .hero-content{grid-template-columns:1fr;}
   .snapshot{grid-template-columns:1fr;}
   .skills-grid{grid-template-columns:1fr 1fr;}
   .proj-grid{grid-template-columns:1fr;}
+  .featured-proj{padding:20px;}
+  .featured-proj .proj-name{font-size:1.2rem;}
+  .proj-visual{aspect-ratio:4/3;min-height:170px;}
+  .visual-duo{grid-template-columns:1fr;}
+  .sorting-visual{grid-template-columns:1fr;aspect-ratio:auto;}
+  .sort-main{min-height:180px;}
+  .sort-side{grid-template-columns:1fr 1fr;}
+  .sort-shot{min-height:135px;}
+  .drone-visual{grid-template-columns:1fr;aspect-ratio:auto;}
+  .drone-main{min-height:180px;}
+  .drone-side{grid-template-columns:1fr 1fr;}
+  .drone-shot{min-height:135px;}
+  .thesis-visual{grid-template-columns:1fr;aspect-ratio:auto;}
+  .thesis-main{min-height:190px;}
+  .thesis-side{grid-template-columns:1fr;grid-template-rows:none;}
+  .thesis-shot{min-height:145px;}
+  .uav-proof-grid{grid-template-columns:1fr;}
+  .uav-proof{min-height:145px;}
+  .lightbox-close{top:-12px;right:-8px;}
+  .project-title-row{gap:12px;margin-bottom:18px;}
   nav{padding:12px 20px;}
   .nav-links{gap:14px;}
   .section-wrap{padding:56px 24px;}
@@ -243,11 +320,11 @@ footer{text-align:center;padding:20px;border-top:1px solid var(--border);color:v
     <div>
       <div class="hero-tag">Available for Opportunities</div>
       <h1 class="hero-name">Parikshith Y S</h1>
-      <p class="hero-sub">Robotics &amp; AI Engineer | ROS2, PX4, Embedded AI, Edge Inference</p>
+      <p class="hero-sub">Robotics &amp; AI Engineer focused on autonomous systems, ROS 2, PX4, embedded AI, and real-world intelligent robotics.</p>
       <p class="hero-desc">
-        AI Engineering student at THI Ingolstadt with 5+ years bridging embedded firmware
-        and autonomous systems. From NVIDIA's DRIVE OS to drone autonomy at Hilti —
-        I build robots that work in the real world.
+        I build end-to-end intelligent systems: from embedded firmware and edge AI
+        to ROS 2-based robotic autonomy. AI Engineering student at THI Ingolstadt
+        with 5+ years across NVIDIA DRIVE OS, drone autonomy, and physical robotics.
       </p>
       <div class="snapshot" aria-label="Recruiter snapshot">
         <div class="snap-item">
@@ -535,51 +612,309 @@ footer{text-align:center;padding:20px;border-top:1px solid var(--border);color:v
 
 <!-- PROJECTS -->
 <div class="section-wrap" id="projects">
-  <div class="sec-label">// 05. projects</div>
-  <div class="sec-title">Projects</div>
+  <div class="project-title-row">
+    <div>
+      <div class="sec-label">// 05. projects</div>
+      <div class="sec-title">Selected Engineering Builds</div>
+    </div>
+    <p class="project-deck">
+      Evidence-backed robotics and AI work led by my LLM-UAV master thesis, plus
+      PX4 autonomy, physical automation, embedded flight control, and RL agents.
+    </p>
+  </div>
+
   <div class="proj-grid">
 
-    <div class="proj-card">
-      <div class="proj-head">
-        <div class="proj-name">Autonomous Object Sorting &amp; Transport — Dual-Robot Collaboration</div>
+    <article class="proj-card featured-proj" style="--accent-line:#a78bfa;">
+      <div class="proj-copy">
+        <div class="proj-eyebrow">Master thesis draft | LLM-driven UAV control</div>
+        <div class="proj-head">
+          <div class="proj-name">Enhancing UAV Control with Large Language Models</div>
+          <div class="proj-badge">Draft Under Review</div>
+        </div>
+        <p class="proj-impact">
+          Master thesis case study turning natural-language commands into grounded UAV
+          actions through context-aware planning, Language-Guided Abstraction, and safe
+          deterministic path execution.
+        </p>
+        <ul>
+          <li>Designed an intent-to-action architecture linking command parsing, spatial grounding, LGA context filtering, LLM planning, and ROS 2 execution.</li>
+          <li>Validated the system in simulation and a physical Crazyflie 2.1 human-robot interaction study with voice-command tasks.</li>
+          <li>Reduced prompt bloat in dense scenes, held planner latency near <span class="metric">~3.0 s</span>, and improved execution success from <span class="metric">87.7%</span> to <span class="metric">92.2%</span>.</li>
+        </ul>
+        <div class="proj-metrics">
+          <span class="proj-metric">108-object scaling</span>
+          <span class="proj-metric">~3.0 s planner latency</span>
+          <span class="proj-metric">92.2% execution success</span>
+          <span class="proj-metric">LGA context pruning</span>
+          <span class="proj-metric">Physical HRI study</span>
+        </div>
+        <div class="proj-stack">
+          <span class="stack-chip">ROS 2</span>
+          <span class="stack-chip">LLM Planning</span>
+          <span class="stack-chip">Language-Guided Abstraction</span>
+          <span class="stack-chip">Edge AI</span>
+          <span class="stack-chip">INT8 / FP16 Quantization</span>
+          <span class="stack-chip">On-Device Inference</span>
+          <span class="stack-chip">Latency Profiling</span>
+          <span class="stack-chip">Prompt Optimization</span>
+          <span class="stack-chip">A* Planning</span>
+          <span class="stack-chip">Crazyflie 2.1</span>
+          <span class="stack-chip">Python</span>
+        </div>
       </div>
-      <div class="proj-date">Apr 2025 – Jul 2025</div>
-      <ul>
-        <li>DJI RoboMaster EP + Arduino Braccio arm for warehouse-style object sorting and transportation.</li>
-        <li>ArUco marker + OpenCV navigation — <span class="metric">85% alignment accuracy</span>.</li>
-        <li>HSV color detection: <span class="metric">95% (red)</span> and <span class="metric">90% (green)</span> under varying lighting.</li>
-        <li>Multi-threaded control across Raspberry Pi and Windows PC with real-time sync.</li>
-      </ul>
-      <div class="project-links">
-        <a class="proof-link" href="Final-Report%20(1).pdf" target="_blank">Project Report</a>
-        <a class="proof-link" href="Finalprojectpresentaion.pptx" target="_blank">Presentation</a>
+      <div class="proj-media">
+        <div class="proj-visual thesis-visual" aria-label="Master thesis UAV control figures and study visuals">
+          <div class="thesis-main">
+            <img src="assets/projects/master-thesis/thesis-img-007.png" alt="Physical UAV human-robot interaction study setup with participant, drone, interface, and microphone">
+            <span>Physical HRI study</span>
+          </div>
+          <div class="thesis-side">
+            <div class="thesis-shot chart">
+              <img src="assets/projects/master-thesis/thesis-img-013.png" alt="Planner token usage comparison showing Language-Guided Abstraction context pruning">
+              <span>Context pruning</span>
+            </div>
+            <div class="thesis-shot chart">
+              <img src="assets/projects/master-thesis/thesis-img-019.png" alt="Integration drop-off pipeline showing filtered execution success">
+              <span>92.2% execution success</span>
+            </div>
+            <div class="thesis-shot chart">
+              <img src="assets/projects/master-thesis/thesis-img-017.png" alt="Radar plot comparing baseline and filtered LGA integration reliability">
+              <span>Reliability profile</span>
+            </div>
+            <div class="thesis-shot chart">
+              <img src="assets/projects/master-thesis/thesis-img-015.png" alt="Median inference latency comparison showing stable filtered planning latency">
+              <span>Latency stability</span>
+            </div>
+          </div>
+        </div>
       </div>
-    </div>
+    </article>
 
-    <div class="proj-card">
+    <article class="proj-card" style="--accent-line:#00ff88;">
+      <div class="proj-media">
+        <div class="proj-visual drone-visual" aria-label="PX4 autonomous drone localization project visuals">
+          <div class="drone-main">
+            <img src="assets/projects/px4-drone-localization/drone.png" alt="PX4 autonomous drone in simulation">
+            <span>PX4 drone simulation</span>
+          </div>
+          <div class="drone-side">
+            <div class="drone-shot">
+              <img src="assets/projects/px4-drone-localization/ui_drone_tag.png" alt="Drone tag localization dashboard UI">
+              <span>Tag dashboard UI</span>
+            </div>
+            <div class="drone-shot map">
+              <img src="assets/projects/px4-drone-localization/mission_path.png" alt="Autonomous drone mission path visualization">
+              <span>Mission path</span>
+            </div>
+            <div class="drone-shot map">
+              <img src="assets/projects/px4-drone-localization/particle_filter_final.png" alt="Final particle filter localization result">
+              <span>Particle filter result</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="proj-eyebrow">Autonomous drone localization</div>
+      <div class="proj-head">
+        <div class="proj-name">PX4 MAVSDK BLE Scan &amp; Localization</div>
+      </div>
+      <p class="proj-impact">
+        Autonomous drone mission stack for scanning BLE beacons in PX4 SITL,
+        using RSSI observations to decide where to fly next and localize tags.
+      </p>
+      <ul>
+        <li>Built MAVSDK mission control over PX4/Gazebo SITL with takeoff, waypointing, RTL, and scan scheduling.</li>
+        <li>Used Gaussian Process UCB planning to balance exploration with high-signal exploitation.</li>
+        <li>Ran per-tag particle filters with <span class="metric">500 particles</span> to estimate beacon GPS positions from noisy RSSI.</li>
+      </ul>
+      <div class="proj-metrics">
+        <span class="proj-metric">500-particle localization</span>
+        <span class="proj-metric">GP + UCB planner</span>
+        <span class="proj-metric">PX4 SITL</span>
+      </div>
+      <div class="proj-stack">
+        <span class="stack-chip">PX4</span>
+        <span class="stack-chip">MAVSDK</span>
+        <span class="stack-chip">Python</span>
+        <span class="stack-chip">Gazebo</span>
+        <span class="stack-chip">WebSockets</span>
+      </div>
+      <div class="proj-actions">
+        <a class="repo-link" href="https://github.com/pari1999/px4_mavsdk_ble_scan" target="_blank" rel="noopener">GitHub Repo</a>
+      </div>
+    </article>
+
+    <article class="proj-card" style="--accent-line:#00c8ff;">
+      <div class="proj-media">
+        <div class="proj-visual sorting-visual" aria-label="Intelligent sorting system project photos and architecture">
+          <div class="sort-main">
+            <img src="assets/projects/intelligent-sorting/pickedup.png" alt="DJI RoboMaster EP carrying an object during the sorting project">
+            <span>RoboMaster pickup run</span>
+          </div>
+          <div class="sort-side">
+            <div class="sort-shot sort-architecture">
+              <img src="assets/projects/intelligent-sorting/system_architecture.png" alt="Distributed synchronized workflow architecture for the intelligent sorting system">
+              <span>Distributed workflow</span>
+            </div>
+            <div class="sort-shot">
+              <img src="assets/projects/intelligent-sorting/sort3.jpg" alt="Braccio robotic arm sorting colored objects">
+              <span>Braccio sorting station</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="proj-eyebrow">Robotics case study | Apr 2025 - Jul 2025</div>
+      <div class="proj-head">
+        <div class="proj-name">Autonomous Object Sorting &amp; Transport</div>
+        <div class="proj-badge">Team Project</div>
+      </div>
+      <p class="proj-impact">Distributed sorting pipeline coordinating a DJI RoboMaster EP mobile base with an Arduino Braccio arm for object pickup, transport, and drop-off.</p>
+      <ul>
+        <li>Fused ArUco marker docking with OpenCV pose estimation to reach <span class="metric">85% alignment accuracy</span>.</li>
+        <li>Implemented HSV color detection for Braccio decisions: <span class="metric">95% red</span> and <span class="metric">90% green</span> recognition under changing light.</li>
+        <li>Coordinated Raspberry Pi, Windows PC, camera streams, serial arm commands, and RoboMaster SDK in threaded control loops.</li>
+      </ul>
+      <div class="proj-metrics">
+        <span class="proj-metric">Dual-robot system</span>
+        <span class="proj-metric">85% ArUco alignment</span>
+        <span class="proj-metric">95/90 HSV detection</span>
+      </div>
+      <div class="proj-stack">
+        <span class="stack-chip">Python</span>
+        <span class="stack-chip">OpenCV</span>
+        <span class="stack-chip">ArUco</span>
+        <span class="stack-chip">RoboMaster SDK</span>
+        <span class="stack-chip">Arduino Braccio</span>
+      </div>
+      <div class="proj-actions">
+        <a class="repo-link" href="https://github.com/pari1999/Intelligent-Sorting-System" target="_blank" rel="noopener">GitHub Repo</a>
+      </div>
+    </article>
+
+    <article class="proj-card" style="--accent-line:#a78bfa;">
+      <div class="proj-media">
+        <div class="proj-visual visual-duo" aria-label="Deep Q-learning training curves">
+          <div class="visual-tile">
+            <img src="assets/projects/Deep_Q_Learning-main/training_curve.png" alt="DQN reward training curve">
+            <span>Reward curve</span>
+          </div>
+          <div class="visual-tile">
+            <img src="assets/projects/Deep_Q_Learning-main/epsilon_decay.png" alt="DQN epsilon decay curve">
+            <span>Epsilon decay</span>
+          </div>
+        </div>
+      </div>
+      <div class="proj-eyebrow">Deep reinforcement learning</div>
+      <div class="proj-head">
+        <div class="proj-name">Deep Q-Learning Maze Agent</div>
+      </div>
+      <p class="proj-impact">Custom continuous-state Gymnasium maze with a PyTorch DQN agent learning safe navigation around walls and danger zones.</p>
+      <ul>
+        <li>Implemented a 2-layer Q-network, target network updates, Huber loss, and Adam optimization.</li>
+        <li>Used a <span class="metric">50k replay buffer</span> and epsilon decay to stabilize exploration over long training runs.</li>
+        <li>Saved trained checkpoints and plotted reward / epsilon curves for training evidence.</li>
+      </ul>
+      <div class="proj-metrics">
+        <span class="proj-metric">50k replay buffer</span>
+        <span class="proj-metric">10k max episodes</span>
+        <span class="proj-metric">PyTorch DQN</span>
+      </div>
+      <div class="proj-stack">
+        <span class="stack-chip">PyTorch</span>
+        <span class="stack-chip">Gymnasium</span>
+        <span class="stack-chip">Pygame</span>
+        <span class="stack-chip">NumPy</span>
+        <span class="stack-chip">Matplotlib</span>
+      </div>
+      <div class="proj-actions">
+        <a class="repo-link" href="https://github.com/pari1999/Deep_Q_Learning" target="_blank" rel="noopener">GitHub Repo</a>
+      </div>
+    </article>
+
+    <article class="proj-card" style="--accent-line:#fbbf24;">
+      <div class="proj-media">
+        <div class="proj-visual rl-visual" aria-label="Q-learning trash collector grid world">
+          <img class="rl-bot" src="assets/projects/Reinforcement_learning-main/assets/Armature_Walk02_00.png" alt="Robot agent sprite">
+          <img class="rl-trash-a" src="assets/projects/Reinforcement_learning-main/assets/plastic_trash.png" alt="Plastic trash sprite">
+          <img class="rl-trash-b" src="assets/projects/Reinforcement_learning-main/assets/green_trash.png" alt="Bio trash sprite">
+          <img class="rl-bin-a" src="assets/projects/Reinforcement_learning-main/assets/plastic_bin.png" alt="Plastic bin sprite">
+          <img class="rl-bin-b" src="assets/projects/Reinforcement_learning-main/assets/bio_bin.png" alt="Bio bin sprite">
+        </div>
+      </div>
+      <div class="proj-eyebrow">Tabular reinforcement learning</div>
+      <div class="proj-head">
+        <div class="proj-name">Q-Learning Robot Trash Collector</div>
+      </div>
+      <p class="proj-impact">Tabular RL environment where a robot learns to collect plastic and bio-waste, route to the correct bins, and avoid inefficient moves.</p>
+      <ul>
+        <li>Designed a 5x5 Gymnasium grid world with six actions: move, pick, and drop.</li>
+        <li>Split policy learning across two Q-tables for staged pickup/drop behavior.</li>
+        <li>Trained over <span class="metric">3000 episodes</span> with epsilon decay and visualized learned policies.</li>
+      </ul>
+      <div class="proj-metrics">
+        <span class="proj-metric">3000 Q-learning episodes</span>
+        <span class="proj-metric">2-phase policy</span>
+        <span class="proj-metric">6-action agent</span>
+      </div>
+      <div class="proj-stack">
+        <span class="stack-chip">Q-learning</span>
+        <span class="stack-chip">Gymnasium</span>
+        <span class="stack-chip">Pygame</span>
+        <span class="stack-chip">NumPy</span>
+        <span class="stack-chip">Seaborn</span>
+      </div>
+      <div class="proj-actions">
+        <a class="repo-link" href="https://github.com/pari1999/Reinforcement-Learning-Agents" target="_blank" rel="noopener">GitHub Repo</a>
+      </div>
+    </article>
+
+    <article class="proj-card" style="--accent-line:#38bdf8;">
+      <div class="proj-media">
+        <div class="proj-visual uav-visual" aria-label="Custom UAV flight controller visual">
+          <div class="uav-proof-grid">
+            <div class="uav-proof">
+              <img src="assets/projects/uav-final-year/developed-quadcopter.jpeg" alt="Developed quadcopter flight controller hardware">
+              <span>Developed quadcopter</span>
+            </div>
+            <div class="uav-proof">
+              <img src="assets/projects/uav-final-year/transmitter-receiver.jpeg" alt="Developed transmitter and receiver hardware">
+              <span>Transmitter and receiver</span>
+            </div>
+            <div class="uav-proof schematic">
+              <img src="assets/projects/uav-final-year/pcb-layout.jpeg" alt="Flight controller PCB layout">
+              <span>PCB layout</span>
+            </div>
+            <div class="uav-proof schematic">
+              <img src="assets/projects/uav-final-year/fabricated-pcb.jpeg" alt="Fabricated flight controller PCB">
+              <span>Fabricated PCB</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="proj-eyebrow">Embedded flight control | Oct 2020 - Apr 2021</div>
       <div class="proj-head">
         <div class="proj-name">Custom UAV Flight Controller &amp; Transceiver Stack</div>
         <div class="proj-badge">Final Year Project</div>
       </div>
-      <div class="proj-date">Oct 2020 – Apr 2021</div>
+      <p class="proj-impact">Embedded flight-control project showing low-level autonomy fundamentals before the PX4/MAVSDK work.</p>
       <ul>
-        <li>Designed full UAV flight controller firmware from ground up: sensor fusion, control loops, and RF comms.</li>
-        <li>IMU sensor fusion (accel, gyro, magnetometer) for real-time attitude estimation.</li>
-        <li>PID attitude stabilization and altitude hold tuned through iterative flight tests.</li>
-        <li>Custom RF transceiver for real-time telemetry and remote command reception.</li>
+        <li>Built firmware stack for sensor fusion, attitude estimation, and PID stabilization.</li>
+        <li>Integrated accelerometer, gyroscope, and magnetometer data for real-time orientation.</li>
+        <li>Implemented RF transceiver channel for telemetry and command reception.</li>
       </ul>
-    </div>
-
-    <div class="proj-card">
-      <div class="proj-head">
-        <div class="proj-name">GSM-Based Real-Time Location Tracking System</div>
+      <div class="proj-metrics">
+        <span class="proj-metric">PID stabilization</span>
+        <span class="proj-metric">IMU fusion</span>
+        <span class="proj-metric">Custom RF telemetry</span>
       </div>
-      <div class="proj-date">Jan 2019 – Mar 2019</div>
-      <ul>
-        <li>GPS + GSM real-time asset tracking with cellular SMS-based location transmission.</li>
-        <li>Microcontroller firmware to parse NMEA sentences and format data for reliable output.</li>
-      </ul>
-    </div>
+      <div class="proj-stack">
+        <span class="stack-chip">Embedded C/C++</span>
+        <span class="stack-chip">PID Control</span>
+        <span class="stack-chip">IMU</span>
+        <span class="stack-chip">RF</span>
+        <span class="stack-chip">Firmware</span>
+      </div>
+    </article>
 
   </div>
 </div>
@@ -625,7 +960,15 @@ footer{text-align:center;padding:20px;border-top:1px solid var(--border);color:v
   </div>
 </div>
 
-<footer>Built with CSS robots &amp; zero images · Parikshith Y S · 2025</footer>
+<footer>Built with CSS robots and project proof visuals &middot; Parikshith Y S &middot; 2025</footer>
+
+<div class="image-lightbox" id="image-lightbox" aria-hidden="true" role="dialog" aria-label="Expanded project image">
+  <div class="lightbox-panel">
+    <button class="lightbox-close" type="button" aria-label="Close expanded image">&times;</button>
+    <img src="" alt="">
+    <div class="lightbox-caption"></div>
+  </div>
+</div>
 
 <script>
 // ── Particles
@@ -653,6 +996,38 @@ const io = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.12 });
 items.forEach(el => io.observe(el));
+
+// Project image lightbox
+const lightbox = document.getElementById('image-lightbox');
+const lightboxImg = lightbox.querySelector('img');
+const lightboxCaption = lightbox.querySelector('.lightbox-caption');
+const lightboxClose = lightbox.querySelector('.lightbox-close');
+
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  lightbox.setAttribute('aria-hidden', 'true');
+  document.body.style.overflow = '';
+  lightboxImg.src = '';
+}
+
+document.querySelectorAll('.proj-visual img').forEach(img => {
+  img.addEventListener('click', () => {
+    lightboxImg.src = img.src;
+    lightboxImg.alt = img.alt;
+    lightboxCaption.textContent = img.alt;
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  });
+});
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', event => {
+  if (event.target === lightbox) closeLightbox();
+});
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && lightbox.classList.contains('open')) closeLightbox();
+});
 </script>
 </body>
 </html>
