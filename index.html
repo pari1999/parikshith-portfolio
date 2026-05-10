@@ -72,13 +72,14 @@ nav{position:fixed;top:0;width:100%;z-index:200;padding:14px 48px;display:flex;j
 .mini-metric{padding:9px 10px;border:1px solid rgba(0,200,255,.2);border-radius:8px;background:rgba(6,13,31,.72);}
 .mini-metric strong{display:block;color:var(--accent);font-size:.92rem;line-height:1;}
 .mini-metric span{display:block;color:#94a3b8;font-size:.66rem;margin-top:4px;line-height:1.2;}
-.hero-demo-strip{display:grid;grid-template-columns:minmax(0,.62fr) minmax(170px,.38fr);gap:10px;margin-top:10px;}
+.hero-demo-strip{display:grid;grid-template-columns:minmax(0,.45fr) minmax(0,.32fr) minmax(145px,.23fr);gap:10px;margin-top:10px;}
 .strip-video,.strip-proof{position:relative;overflow:hidden;border-radius:8px;border:1px solid rgba(148,163,184,.2);background:#08142b;min-width:0;}
 .strip-video video{width:100%;aspect-ratio:16/9;display:block;object-fit:cover;filter:saturate(1.07) contrast(1.04);}
+.crazyflie-strip video{object-position:center;}
 .strip-video span,.strip-proof span{position:absolute;left:8px;bottom:8px;padding:4px 7px;border-radius:6px;background:rgba(6,13,31,.84);border:1px solid rgba(255,255,255,.12);color:#e2e8f0;font-size:.68rem;font-weight:700;}
 .strip-proof{display:grid;align-content:center;padding:14px;background:linear-gradient(145deg,rgba(13,27,53,.92),rgba(17,32,64,.96));}
 .strip-proof strong{display:block;color:#fff;font-size:1.55rem;line-height:1;}
-.strip-proof small{display:block;color:#94a3b8;font-size:.74rem;line-height:1.35;margin-top:6px;}
+.strip-proof small{display:block;color:#94a3b8;font-size:.7rem;line-height:1.35;margin-top:6px;}
 
 /* ── ROBOT SCENE ── */
 .robot-scene{display:none;justify-content:center;align-items:flex-end;position:relative;height:440px;}
@@ -251,6 +252,9 @@ nav{position:fixed;top:0;width:100%;z-index:200;padding:14px 48px;display:flex;j
 .thesis-video-card::before{content:'FIELD DEMO';position:absolute;right:8px;top:8px;z-index:2;padding:4px 7px;border-radius:999px;background:rgba(167,139,250,.16);border:1px solid rgba(167,139,250,.35);color:#ddd6fe;font-size:.62rem;font-weight:800;letter-spacing:1px;pointer-events:none;}
 .thesis-video-card:hover{border-color:var(--accent-line);box-shadow:0 16px 36px rgba(124,58,237,.2);transform:translateY(-2px);}
 .thesis-video-card video{width:100%;aspect-ratio:16/9;display:block;object-fit:cover;background:#08142b;filter:saturate(1.06) contrast(1.05);transition:filter .2s;}
+.crazyflie-card{grid-column:1/-1;}
+.crazyflie-card::before{content:'CRAZYFLIE 2.1';}
+.crazyflie-card video{object-fit:contain;background:radial-gradient(circle at 50% 48%,rgba(0,200,255,.12),rgba(7,18,41,.95) 54%,#050b18 100%);}
 .thesis-video-card:hover video{filter:saturate(1.14) contrast(1.08);}
 .thesis-video-card figcaption{position:absolute;left:8px;top:8px;z-index:2;max-width:calc(100% - 92px);padding:4px 7px;border-radius:6px;background:rgba(6,13,31,.84);border:1px solid rgba(255,255,255,.12);color:#e2e8f0;font-size:.68rem;font-weight:700;line-height:1.25;pointer-events:none;}
 .thesis-visual{display:grid;grid-template-columns:1.25fr .95fr;gap:8px;padding:8px;background:#08142b;}
@@ -426,6 +430,12 @@ footer{text-align:center;padding:20px;border-top:1px solid var(--border);color:v
             <source src="participant2_blurred.mp4" type="video/mp4">
           </video>
           <span>Participant 2 validation</span>
+        </div>
+        <div class="strip-video crazyflie-strip">
+          <video autoplay muted loop playsinline preload="metadata" poster="crazyflie_poster.jpg">
+            <source src="crazyflie.mp4" type="video/mp4">
+          </video>
+          <span>Crazyflie flight</span>
         </div>
         <div class="strip-proof">
           <strong>108</strong>
@@ -749,7 +759,7 @@ footer{text-align:center;padding:20px;border-top:1px solid var(--border);color:v
         </div>
       </div>
       <div class="proj-media">
-        <div class="thesis-demo-reel" aria-label="Master thesis participant demo videos">
+        <div class="thesis-demo-reel" aria-label="Master thesis participant and Crazyflie demo videos">
           <figure class="thesis-video-card">
             <video controls muted playsinline preload="metadata" poster="participant1_blurred.jpg" aria-label="Participant 1 thesis voice-command UAV trial">
               <source src="participant1_blurred.mp4" type="video/mp4">
@@ -763,6 +773,13 @@ footer{text-align:center;padding:20px;border-top:1px solid var(--border);color:v
               Your browser does not support the video tag.
             </video>
             <figcaption>Participant 2 trial</figcaption>
+          </figure>
+          <figure class="thesis-video-card crazyflie-card">
+            <video controls muted playsinline preload="metadata" poster="crazyflie_poster.jpg" aria-label="Crazyflie 2.1 thesis physical flight demo">
+              <source src="crazyflie.mp4" type="video/mp4">
+              Your browser does not support the video tag.
+            </video>
+            <figcaption>Crazyflie flight demo</figcaption>
           </figure>
         </div>
         <div class="proj-visual thesis-visual" aria-label="Master thesis UAV control figures and study visuals">
